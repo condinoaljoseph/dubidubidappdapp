@@ -1,8 +1,11 @@
 import type { NextPage } from 'next'
+import MainLayout from '../components/MainLayout'
 
 const Home: NextPage = () => {
   return (
-    <h1>Hello World</h1>
+    <MainLayout>
+      <h1>Hello World</h1>
+    </MainLayout>
   )
 }
 
