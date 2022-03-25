@@ -1,6 +1,7 @@
+import { FC } from "react"
 import Nav from "./Nav"
 
-const MainLayout = ({ children }) => {
+const MainLayout: FC = ({ children }) => {
   return (
     <div>
         <Nav />
