@@ -1,13 +1,11 @@
 import { FC } from "react"
-import Nav from "./Nav"
+import { Header } from "./Header"
 
-const MainLayout: FC = ({ children }) => {
+export const AppLayout: FC = ({ children }) => {
   return (
-    <div>
-        <Nav />
+    <div className="container">
+        <Header />
         {children}
     </div>
   )
 }
-
-export default MainLayout

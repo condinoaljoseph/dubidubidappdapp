@@ -1,10 +1,11 @@
 import type { NextPage } from 'next'
+import { AppLayout } from '../components/AppLayout'
 
 const Dash: NextPage = () => {
   return (
-    <div>
+    <AppLayout>
       <h1>Dashboard</h1>
-    </div>
+    </AppLayout>
   )
 }
 
