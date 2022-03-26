@@ -29,6 +29,7 @@ export const authOptions = {
 			}
 		})
 	],
+	secret: process.env.SECRET,
 	callbacks: {
 		jwt: ({ token, user }) => {
 			if (user) {
