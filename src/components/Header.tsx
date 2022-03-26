@@ -1,14 +1,14 @@
-import { useAccount } from "wagmi"
+import { signOut } from "next-auth/react"
+import { useRequireAuth } from "../hooks/useRequireAuth"
 
 export const Header = () => {
-  const [{ data }, disconnect] = useAccount({
-    fetchEns: true,
-  })
+  const session = useRequireAuth();
+  if (!session) return <h1>Loading</h1> // add loader component
 
   return (
     <div>
-      <span>{data?.address}</span>
-      <button onClick={disconnect}>Disconnect</button>
+      <span>{session?.user?.name}</span>
+      <button onClick={() => signOut()}>Logout</button>
     </div>
   )
 }

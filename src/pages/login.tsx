@@ -3,9 +3,11 @@ import { useConnect } from 'wagmi'
 import toast from 'react-hot-toast'
 import { useEffect } from 'react'
 import { generateChallenge } from '../lens/authentication/generate-challenge'
-import { authenticate } from '../lens/authentication/authenticate'
+import { signIn, signOut, useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 const Login: NextPage = () => {
+  const router = useRouter()
   const [{ data, error }, connect] = useConnect()
 
   const login = async (connector) => {
@@ -14,8 +16,14 @@ const Login: NextPage = () => {
       const challenge = await generateChallenge(res.data?.account);
       const signer = await connector.getSigner();
       const signature = await signer.signMessage(challenge.data.challenge.text);
-      const accessTokens = await authenticate(res.data?.account, signature);
-      console.log(accessTokens)
+      
+      // signin(verify and create user)
+      const signinRes: any = await signIn('credentials', { address: res.data?.account, signature: signature, redirect: false });
+      if (signinRes.error) {
+        toast.error("Error signin");
+      } else {
+        router.push("/dash");
+      }
     } catch (error: any) {
       toast(error?.message)
     }
