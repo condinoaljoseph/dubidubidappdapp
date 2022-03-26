@@ -1,11 +1,16 @@
 import type { NextPage } from 'next'
-import MainLayout from '../components/MainLayout'
+import Link from 'next/link'
+
+// todo: landing page design
 
 const Home: NextPage = () => {
   return (
-    <MainLayout>
+    <div>
       <h1>Hello World</h1>
-    </MainLayout>
+      <Link href="/dash">
+        <a>Launch Dapp</a>
+      </Link>
+    </div>
   )
 }
 

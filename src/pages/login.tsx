@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import { useConnect } from 'wagmi'
 import toast from 'react-hot-toast'
 import { useEffect } from 'react'
-import MainLayout from '../components/MainLayout'
 import { generateChallenge } from '../lens/authentication/generate-challenge'
 import { authenticate } from '../lens/authentication/authenticate'
 
@@ -29,8 +28,7 @@ const Login: NextPage = () => {
   }, [error])
 
   return (
-    <MainLayout>
-      <p>Login with</p>
+    <div>
       {data.connectors.map((connector) => (
         <button
           key={connector.id}
@@ -40,7 +38,7 @@ const Login: NextPage = () => {
           {!connector.ready && ' (unsupported)'}
         </button>
       ))}
-    </MainLayout>
+    </div>
   )
 }
 

@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* todo: fix this shit */
+#nprogress {
+  @apply absolute z-50 top-0 left-0 h-full w-full bg-slate-900/50
+}
+
+#nprogress .bar {
+  @apply !bg-indigo-500
+}
+
+/* its indigo-500 */
+#nprogress .peg {
+  box-shadow: 0 0 10px #6366f1, 0 0 5px #6366f1 !important;
+}
+
+#nprogress .spinner-icon {
+  @apply !border-t-indigo-500 !border-l-indigo-500
+}
