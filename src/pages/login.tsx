@@ -11,14 +11,14 @@ const Login: NextPage = () => {
 
   const login = async (connector) => {
     try {
-      const res = await connect(connector);
+      const res: any = await connect(connector);
       const challenge = await generateChallenge(res.data?.account);
       const signer = await connector.getSigner();
       const signature = await signer.signMessage(challenge.data.challenge.text);
       const accessTokens = await authenticate(res.data?.account, signature);
       console.log(accessTokens)
-    } catch (error) {
-      toast(error)
+    } catch (error: any) {
+      toast(error?.message)
     }
   }
 

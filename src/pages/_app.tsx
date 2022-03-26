@@ -5,8 +5,8 @@ import { connectors } from '../lib/connectors'
 import { Toaster } from 'react-hot-toast'
 import { providers } from 'ethers'
 
-const provider = ({ chainId }) =>
-  new providers.JsonRpcProvider("https://rpc-mumbai.matic.today", chainId)
+const provider = () =>
+  new providers.JsonRpcProvider("https://rpc-mumbai.matic.today")
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

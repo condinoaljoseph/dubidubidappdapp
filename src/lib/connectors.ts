@@ -11,10 +11,7 @@ const infuraId = process.env.INFURA_ID
 const chains = defaultChains
 
 // Set up connectors
-export const connectors = ({ chainId }) => {
-  const rpcUrl =
-    chains.find((x) => x.id === chainId)?.rpcUrls?.[0] ??
-    chain.mainnet.rpcUrls[0]
+export const connectors = () => {
   return [
     new InjectedConnector({
       chains,
@@ -25,12 +22,6 @@ export const connectors = ({ chainId }) => {
         infuraId,
         qrcode: true,
       },
-    }),
-    new WalletLinkConnector({
-      options: {
-        appName: 'Dubidubidappdapp',
-        jsonRpcUrl: `${rpcUrl}/${infuraId}`,
-      },
-    }),
+    })
   ]
 }
