@@ -17,6 +17,7 @@ export const authOptions = {
 				try {
 					const { address, signature }: any = credentials;
 					const accessTokens = await authenticate(address, signature);
+          console.log(process.env.NEXTAUTH_SECRET, '@@@@@@@@@@')
 
 					return {
 						id: address,
@@ -28,7 +29,12 @@ export const authOptions = {
 				}
 			}
 		})
-	],
+	],  
+	pages: {
+		signIn: `/login`,
+		verifyRequest: `/login`,
+		error: "/login", // Error code passed in query string as ?error=
+	},
 	secret: process.env.NEXTAUTH_SECRET,
 	callbacks: {
 		jwt: ({ token, user }) => {
