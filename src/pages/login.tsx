@@ -22,7 +22,7 @@ const Login: NextPage = () => {
       const signer = await connector.getSigner();
       const signature = await signer.signMessage(challenge.data.challenge.text);
       
-      // signin(verify and create user)
+      // signin(authenticate via lens)
       const signinRes: any = await signIn('credentials', { address: res.data?.account, signature: signature, redirect: false });
       if (signinRes.error) {
         toast.error("Error signin");
