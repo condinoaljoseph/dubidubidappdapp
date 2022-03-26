@@ -3,6 +3,8 @@ import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { authenticate } from "../../../lens/authentication/authenticate";
 
+
+// todo add secret
 export const authOptions = {
 	providers: [
 		CredentialsProvider({
