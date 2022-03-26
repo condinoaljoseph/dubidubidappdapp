@@ -3,12 +3,17 @@ import { useConnect } from 'wagmi'
 import toast from 'react-hot-toast'
 import { useEffect } from 'react'
 import { generateChallenge } from '../lens/authentication/generate-challenge'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 
 const Login: NextPage = () => {
   const router = useRouter()
   const [{ data, error }, connect] = useConnect()
+  const { data: session }: any = useSession();
+
+  if (session) {
+    router.push('/dash')
+  }
 
   const login = async (connector) => {
     try {
