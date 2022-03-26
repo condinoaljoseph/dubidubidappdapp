@@ -6,9 +6,9 @@ import Link from 'next/link'
 const Home: NextPage = () => {
   return (
     <div>
-      <h1>Hello World</h1>
+      <h1>DubiDubiDappDapp</h1>
       <Link href="/dash">
-        <a>Launch Dapp</a>
+        <a className="bg-cyan-500">Launch Dapp</a>
       </Link>
     </div>
   )

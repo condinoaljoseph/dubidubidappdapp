@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <div>
       <span>{session?.user?.name}</span>
-      <button onClick={() => signOut()}>Logout</button>
+      <button className="bg-cyan-500" onClick={() => signOut()}>Logout</button>
     </div>
   )
 }

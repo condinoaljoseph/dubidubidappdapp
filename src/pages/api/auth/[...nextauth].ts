@@ -17,7 +17,6 @@ export const authOptions = {
 				try {
 					const { address, signature }: any = credentials;
 					const accessTokens = await authenticate(address, signature);
-          console.log(process.env.NEXTAUTH_SECRET, '@@@@@@@@@@')
 
 					return {
 						id: address,

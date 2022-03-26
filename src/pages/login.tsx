@@ -44,6 +44,7 @@ const Login: NextPage = () => {
     <div>
       {data.connectors.map((connector) => (
         <button
+          className="bg-cyan-500 m-2"
           key={connector.id}
           onClick={() => login(connector)}
         >
